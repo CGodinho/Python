@@ -3,7 +3,7 @@
 
 The interpreter looks at the type of the value referred to by the object reference (the memory address) and, 
 if the variable refers to a **mutable value**, call-by-reference semantics apply. If the type of the data 
-referred to is **immutable**, call-by- value semantics kick in. Consider now what this means for our data.
+referred to is **immutable**, call-by-value semantics kick in. Consider now what this means for our data.
 
 Lists, dictionaries, and sets (being mutable) are always passed into a function by reference— any changes made to the variable’s data structure within the function’s suite are reflected in the calling code. The data is mutable, after all.
 
@@ -25,3 +25,19 @@ Produce the installation:
 Install with pip:
 
 ```pip3 install functions.tar.gz```
+
+
+# Check code style
+
+PEP 8 is used to verify code style in Python.
+
+Start by installing pytrtest and pep8 plugin:
+
+```
+py -3 -m pip install pytest
+py -3 -m pip install pytest-pep8
+```
+
+Check code style with:
+
+```py.test --pep8 functions.py```
