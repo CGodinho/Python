@@ -6,20 +6,18 @@ Created on Thu Jan 30 23:35:07 2020
 @author: carlosgodinho
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello() -> str:
-    return 'Hello from Flask!'
-
-@app.route('/echo')
+@app.route('/results', methods=['POST'])
 def echo() -> str:
-    return 'Echhho!'
+    results = 'Echhho '+ request.form['message'] + '!!' 
+    return render_template('results.html', the_title='Presenting results', the_results=results, the_message=request.form['message'],)
 
+@app.route('/')
 @app.route('/entry')
 def entry_page() -> 'html':
     return render_template('entry.html', the_title='Echo tester')
 
-app.run()   
+app.run(debug=True)   
