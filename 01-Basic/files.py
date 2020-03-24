@@ -14,6 +14,7 @@ data_file.close()
     
 
 # Reading from file using 'with'
+# Content management protocol applied woth dunders enter and exit
 with open('example.txt', 'r') as data_file:
     for line in data_file:
         print('Line : ', line)
